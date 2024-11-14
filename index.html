@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Edukasi Obesitas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+        header.scrolled {
+            opacity: 0.7;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 1em;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .bmi-calculator {
+            margin-top: 1em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            animation: slideIn 1s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .bmi-calculator input {
+            margin: 0.5em;
+        }
+        .bmi-calculator button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .bmi-calculator button:hover {
+            background-color: #45a049;
+        }
+        .image-section img {
+            width: 100%;
+            height: auto;
+            margin: 0.5em 0;
+            border-radius: 8px;
+            animation: fadeInImage 1s ease-in;
+        }
+        @keyframes fadeInImage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        footer {
+            background-color: #333;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Website Edukasi Obesitas</h1>
+</header>
+
+<main>
+    <section class="image-section">
+        <img src="obesitas.jpg">
+    </section>
+
+    <section>
+        <h2>Apa Itu Obesitas?</h2>
+        <p>Obesitas adalah kondisi medis yang ditandai dengan penumpukan lemak tubuh berlebihan yang dapat memengaruhi kesehatan. Obesitas meningkatkan risiko berbagai penyakit seperti penyakit jantung, diabetes, dan beberapa jenis kanker.</p>
+    </section>
+
+    <section>
+        <h2>Penyebab Obesitas</h2>
+        <ul>
+            <li>Pola makan dan kebiasaan makan yang buruk</li>
+            <li>Kurangnya aktivitas fisik</li>
+            <li>Faktor genetik dan riwayat keluarga</li>
+            <li>Kondisi medis tertentu</li>
+            <li>Pengaruh obat-obatan tertentu</li>
+        </ul>
+    </section>
+
+    <section class="bmi-calculator">
+        <h2>Kalkulator BMI</h2>
+        <p>Masukkan tinggi dan berat badan Anda untuk menghitung BMI dan mengetahui status kesehatan Anda:</p>
+        <label for="weight">Berat badan (kg):</label>
+        <input type="number" id="weight" placeholder="misal: 70">
+        <label for="height">Tinggi badan (cm):</label>
+        <input type="number" id="height" placeholder="misal: 170">
+        <button onclick="calculateBMI()">Hitung BMI</button>
+        <p id="bmiResult"></p>
+    </section>
+
+    <section>
+        <h2>Tips Mencegah Obesitas</h2>
+        <ul>
+            <li>Pilih Makanan Seimbang: Contoh makanan bergizi, seperti sayuran, buah-buahan, protein sehat, dan karbohidrat kompleks</li>
+            <li>Batasi Gula dan Lemak Jenuh: Jelaskan efek gula dan lemak jenuh pada penambahan berat badan.</li>
+            <li>Kontrol Porsi: Tips untuk memperhatikan ukuran porsi dan menghindari makan berlebihan.</li>
+            <li>Minum Air Cukup: Bagaimana air membantu metabolisme dan mengurangi konsumsi kalori berlebih.</li>
+            <li>Aktivitas Fisik Teratur: Saran olahraga minimal 30 menit per hari.</li>
+        </ul>
+    </section>
+</main>
+
+<script>
+    function calculateBMI() {
+        const weight = parseFloat(document.getElementById("weight").value);
+        const height = parseFloat(document.getElementById("height").value) / 100;
+
+        if (isNaN(weight) || isNaN(height)) {
+            document.getElementById("bmiResult").innerText = "Masukkan angka yang valid untuk berat dan tinggi badan.";
+            return;
+        }
+
+        const bmi = weight / (height * height);
+        let message;
+
+        if (bmi < 18.5) {
+            message = "Anda kekurangan berat badan, disarankan untuk meningkatkan frekuensi makan dengan porsi kecil agar asupan kalori bertambah secara bertahap. Makanan yang dipilih sebaiknya padat nutrisi, seperti kacang-kacangan, alpukat, yogurt, dan biji-bijian, untuk memenuhi kebutuhan gizi. Pertimbangkan untuk berkonsultasi dengan profesional kesehatan.";
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            message = "Berat badan Anda normal, menjaga pola makan seimbang sangat penting agar kondisi tubuh tetap ideal. Asupan makanan yang beragam dengan porsi karbohidrat, protein, lemak, dan serat yang seimbang akan mendukung kesehatan jangka panjang.";
+        } else if (bmi >= 25 && bmi < 29.9) {
+            message = "perbaikan pola makan menjadi langkah pertama yang penting. Sebaiknya, kurangi kalori harian dengan menghindari makanan tinggi lemak, gula, dan garam, serta perhatikan ukuran porsi makanan.";
+        } else {
+            message = "Anda mengalami obesitas, memperbanyak aktivitas fisik dengan olahraga yang sesuai dengan kemampuan fisik, seperti berjalan atau bersepeda, juga dapat membantu mengurangi risiko cedera. Makanan olahan dan cepat saji yang tinggi lemak, gula, dan garam sebaiknya dibatasi untuk membantu mengurangi penumpukan lemak dalam tubuh. Sebaiknya berkonsultasi dengan penyedia layanan kesehatan.";
+        }
+
+        document.getElementById("bmiResult").innerText = `BMI Anda adalah ${bmi.toFixed(1)}. ${message}`;
+    }
+
+    window.addEventListener("scroll", function() {
+        const header = document.querySelector("header");
+        header.classList.toggle("scrolled", window.scrollY > 50);
+    });
+</script>
+
+</body>
+</html>
