@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0f8ff;
             color: #333;
             margin: 0;
             padding: 0;
@@ -18,7 +18,7 @@
             to { opacity: 1; }
         }
         header {
-            background-color: #4CAF50;
+            background-color: #ff6b6b;
             color: white;
             padding: 1em;
             text-align: center;
@@ -28,22 +28,26 @@
             transition: opacity 0.3s;
         }
         header.scrolled {
-            opacity: 0.7;
+            opacity: 0.8;
         }
         main {
             max-width: 800px;
             margin: auto;
             padding: 1em;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         h2 {
-            color: #4CAF50;
+            color: #ff6b6b;
         }
         .bmi-calculator {
             margin-top: 1em;
             padding: 1em;
             border: 1px solid #ddd;
-            background-color: #fff;
+            background-color: #f7f7f7;
             animation: slideIn 1s ease-out;
+            border-radius: 8px;
         }
         @keyframes slideIn {
             from { transform: translateY(50px); opacity: 0; }
@@ -51,17 +55,21 @@
         }
         .bmi-calculator input {
             margin: 0.5em;
+            padding: 0.5em;
+            border-radius: 4px;
+            border: 1px solid #ddd;
         }
         .bmi-calculator button {
-            background-color: #4CAF50;
+            background-color: #ff6b6b;
             color: white;
             padding: 0.5em 1em;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
             transition: background-color 0.3s;
         }
         .bmi-calculator button:hover {
-            background-color: #45a049;
+            background-color: #ff4c4c;
         }
         .image-section img {
             width: 100%;
